@@ -296,6 +296,7 @@ body::before {
     #9333ea
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -321,4 +322,131 @@ body::before {
 
 .reset:hover {
   background: #d1d5db;
+}
+/* ヘッダー */
+.app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.app-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.app-nav button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #64748b;
+}
+
+.app-nav button.active {
+  background: #eef2ff;
+  color: #4f46e5;
+  font-weight: 600;
+}
+/* 📱 スマホ用 */
+@media (max-width: 640px) {
+  .app-header {
+    justify-content: center;
+  }
+
+  .app-title {
+    font-size: 16px;
+  }
+
+  .app-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .app-nav button {
+    flex-direction: column;
+    font-size: 12px;
+  }
+
+  .app-nav .label {
+    display: none; /* ← 文字を消す */
+  }
+
+  .icon {
+    font-size: 22px;
+  }
+}
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.login-page,
+.quick-page {
+  padding-top: 96px;
+}
+
+/* 診断結果カードの装飾 */
+#result-card {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #333;
+  background: white;
+  padding: 40px 20px;
+}
+
+/* 楽器ごとのテーマカラー */
+.guitar { border-color: #ff4757 !important; background: linear-gradient(180deg, #fff 0%, #ffeae6 100%); }
+.bass { border-color: #2f3542 !important; background: linear-gradient(180deg, #fff 0%, #e0e0e0 100%); }
+.drums { border-color: #ffa502 !important; background: linear-gradient(180deg, #fff 0%, #fff4e0 100%); }
+.keyboard { border-color: #5352ed !important; background: linear-gradient(180deg, #fff 0%, #e8e8ff 100%); }
+
+.instrument-label {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+/* ステータスバーのスタイル */
+.status-container {
+  margin: 20px 0;
+  text-align: left;
+}
+.status-bar-item { margin-bottom: 8px; }
+.status-label { font-size: 0.8rem; font-weight: bold; }
+.bar-bg { background: #eee; height: 12px; border-radius: 6px; }
+.bar-fill { 
+  height: 100%; 
+  border-radius: 6px; 
+  background: linear-gradient(90deg, #42b983, #34a853); 
+  transition: width 1s ease-out;
 }
